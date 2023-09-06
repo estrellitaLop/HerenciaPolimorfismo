@@ -45,6 +45,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnAdquirir = new System.Windows.Forms.Button();
             this.lvDetalle = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblNeto = new System.Windows.Forms.Label();
@@ -116,7 +121,6 @@
             this.label4.Size = new System.Drawing.Size(44, 15);
             this.label4.TabIndex = 5;
             this.label4.Text = "FECHA";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // lblFecha
             // 
@@ -199,14 +203,47 @@
             this.btnAdquirir.TabIndex = 10;
             this.btnAdquirir.Text = "ADQUIRIR";
             this.btnAdquirir.UseVisualStyleBackColor = true;
+            this.btnAdquirir.Click += new System.EventHandler(this.btnAdquirir_Click);
             // 
             // lvDetalle
             // 
-            this.lvDetalle.Location = new System.Drawing.Point(22, 309);
+            this.lvDetalle.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.lvDetalle.GridLines = true;
+            this.lvDetalle.Location = new System.Drawing.Point(12, 309);
             this.lvDetalle.Name = "lvDetalle";
-            this.lvDetalle.Size = new System.Drawing.Size(608, 120);
+            this.lvDetalle.Size = new System.Drawing.Size(631, 120);
             this.lvDetalle.TabIndex = 9;
             this.lvDetalle.UseCompatibleStateImageBehavior = false;
+            this.lvDetalle.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ITEM";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "DESCRIPCION DEL PRODUCTO";
+            this.columnHeader2.Width = 240;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "CANTIDAD";
+            this.columnHeader3.Width = 120;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "PRECIO";
+            this.columnHeader4.Width = 120;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "SUBTOTAL";
+            this.columnHeader5.Width = 120;
             // 
             // label10
             // 
@@ -268,6 +305,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "frmContado";
             this.Text = "frmContado";
+            this.Load += new System.EventHandler(this.frmContado_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -300,5 +338,10 @@
         private Label label11;
         private Label lblNeto;
         private ListBox lstResumen;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
     }
 }

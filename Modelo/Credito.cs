@@ -13,7 +13,7 @@ namespace Modelo
         {
             x++;
         }
-        public int CetX()
+        public int GetX()
         {
             return x;
         }

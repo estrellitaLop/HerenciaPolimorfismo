@@ -32,7 +32,6 @@
             this.lblMonto = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lvDetalle = new System.Windows.Forms.ListView();
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblHora = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -49,10 +48,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lvResumen = new System.Windows.Forms.ListView();
+            this.btnResumen = new System.Windows.Forms.Button();
             this.cboLetras = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnResumen = new System.Windows.Forms.Button();
-            this.lvResumen = new System.Windows.Forms.ListView();
+            this.lvDetalle = new System.Windows.Forms.ListView();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.groupBox2.SuspendLayout();
             this.cboLe.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -66,12 +73,13 @@
             this.btnAdquirir.TabIndex = 23;
             this.btnAdquirir.Text = "ADQUIRIR";
             this.btnAdquirir.UseVisualStyleBackColor = true;
+            this.btnAdquirir.Click += new System.EventHandler(this.btnAdquirir_Click);
             // 
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
             this.lblMonto.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblMonto.Location = new System.Drawing.Point(512, 507);
+            this.lblMonto.Location = new System.Drawing.Point(538, 502);
             this.lblMonto.Name = "lblMonto";
             this.lblMonto.Size = new System.Drawing.Size(66, 21);
             this.lblMonto.TabIndex = 26;
@@ -81,7 +89,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(493, 466);
+            this.label11.Location = new System.Drawing.Point(500, 466);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(154, 21);
             this.label11.TabIndex = 25;
@@ -95,14 +103,6 @@
             this.label10.Size = new System.Drawing.Size(60, 15);
             this.label10.TabIndex = 24;
             this.label10.Text = "RESUMEN";
-            // 
-            // lvDetalle
-            // 
-            this.lvDetalle.Location = new System.Drawing.Point(15, 293);
-            this.lvDetalle.Name = "lvDetalle";
-            this.lvDetalle.Size = new System.Drawing.Size(608, 120);
-            this.lvDetalle.TabIndex = 22;
-            this.lvDetalle.UseCompatibleStateImageBehavior = false;
             // 
             // lblFecha
             // 
@@ -249,10 +249,33 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Location = new System.Drawing.Point(15, 434);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(461, 160);
+            this.groupBox3.Size = new System.Drawing.Size(488, 160);
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "OPCIONES DE CREDITO";
+            // 
+            // lvResumen
+            // 
+            this.lvResumen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7});
+            this.lvResumen.GridLines = true;
+            this.lvResumen.Location = new System.Drawing.Point(182, 22);
+            this.lvResumen.Name = "lvResumen";
+            this.lvResumen.Size = new System.Drawing.Size(300, 111);
+            this.lvResumen.TabIndex = 25;
+            this.lvResumen.UseCompatibleStateImageBehavior = false;
+            this.lvResumen.View = System.Windows.Forms.View.Details;
+            // 
+            // btnResumen
+            // 
+            this.btnResumen.Location = new System.Drawing.Point(18, 79);
+            this.btnResumen.Name = "btnResumen";
+            this.btnResumen.Size = new System.Drawing.Size(146, 23);
+            this.btnResumen.TabIndex = 24;
+            this.btnResumen.Text = "MOSTRAR RESUMEN";
+            this.btnResumen.UseVisualStyleBackColor = true;
+            this.btnResumen.Click += new System.EventHandler(this.btnResumen_Click);
             // 
             // cboLetras
             // 
@@ -271,34 +294,68 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "SELECCIONE LETRAS";
             // 
-            // btnResumen
+            // lvDetalle
             // 
-            this.btnResumen.Location = new System.Drawing.Point(18, 79);
-            this.btnResumen.Name = "btnResumen";
-            this.btnResumen.Size = new System.Drawing.Size(146, 23);
-            this.btnResumen.TabIndex = 24;
-            this.btnResumen.Text = "MOSTRAR RESUMEN";
-            this.btnResumen.UseVisualStyleBackColor = true;
+            this.lvDetalle.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.lvDetalle.GridLines = true;
+            this.lvDetalle.Location = new System.Drawing.Point(12, 293);
+            this.lvDetalle.Name = "lvDetalle";
+            this.lvDetalle.Size = new System.Drawing.Size(631, 120);
+            this.lvDetalle.TabIndex = 28;
+            this.lvDetalle.UseCompatibleStateImageBehavior = false;
+            this.lvDetalle.View = System.Windows.Forms.View.Details;
             // 
-            // lvResumen
+            // columnHeader1
             // 
-            this.lvResumen.Location = new System.Drawing.Point(199, 32);
-            this.lvResumen.Name = "lvResumen";
-            this.lvResumen.Size = new System.Drawing.Size(251, 97);
-            this.lvResumen.TabIndex = 25;
-            this.lvResumen.UseCompatibleStateImageBehavior = false;
+            this.columnHeader1.Text = "ITEM";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "DESCRIPCION DEL PRODUCTO";
+            this.columnHeader2.Width = 240;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "CANTIDAD";
+            this.columnHeader3.Width = 120;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "PRECIO";
+            this.columnHeader4.Width = 120;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "SUBTOTAL";
+            this.columnHeader5.Width = 120;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "No.Letras";
+            this.columnHeader6.Width = 120;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Montos";
+            this.columnHeader7.Width = 180;
             // 
             // frmCredito
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(657, 607);
+            this.Controls.Add(this.lvDetalle);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAdquirir);
             this.Controls.Add(this.lblMonto);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.lvDetalle);
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblHora);
             this.Controls.Add(this.groupBox2);
@@ -308,6 +365,7 @@
             this.Controls.Add(this.label4);
             this.Name = "frmCredito";
             this.Text = "frmCredito";
+            this.Load += new System.EventHandler(this.frmCredito_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.cboLe.ResumeLayout(false);
@@ -325,7 +383,6 @@
         private Label lblMonto;
         private Label label11;
         private Label label10;
-        private ListView lvDetalle;
         private Label lblFecha;
         private Label lblHora;
         private GroupBox groupBox2;
@@ -346,5 +403,13 @@
         private Button btnResumen;
         private ComboBox cboLetras;
         private Label label7;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader7;
+        private ListView lvDetalle;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
     }
 }
